@@ -19,21 +19,11 @@ export default defineConfig(({ mode }) => {
             name: 'SubTracker - Subscription Manager',
             short_name: 'SubTracker',
             description: 'Track and manage your subscriptions with AI-powered insights',
-            theme_color: '#ffffff',
-            background_color: '#ffffff',
+            theme_color: '#3B82F6',
+            background_color: '#F2F4F6',
             display: 'standalone',
-            icons: [
-              {
-                src: 'pwa-192x192.png',
-                sizes: '192x192',
-                type: 'image/png'
-              },
-              {
-                src: 'pwa-512x512.png',
-                sizes: '512x512',
-                type: 'image/png'
-              }
-            ]
+            start_url: '/',
+            scope: '/'
           },
           workbox: {
             globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
