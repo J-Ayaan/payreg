@@ -39,3 +39,44 @@ View your app in AI Studio: https://ai.studio/apps/drive/1c8Gk-0gtGZQ6Lr2jRdMflJ
    npm run build
    npm run preview
    ```
+
+## PWA Support
+
+This app includes Progressive Web App (PWA) support with offline functionality and auto-updates.
+
+### PWA Icons
+
+To customize PWA icons, add the following images to the `public/` directory:
+- `pwa-192x192.png` - 192x192px icon
+- `pwa-512x512.png` - 512x512px icon
+- `favicon.ico` - Browser favicon
+- `apple-touch-icon.png` - iOS home screen icon
+
+You can generate PWA icons using tools like:
+- [PWA Asset Generator](https://github.com/elegantapp/pwa-asset-generator)
+- [RealFaviconGenerator](https://realfavicongenerator.net/)
+
+### Service Worker
+
+The app automatically registers a service worker that:
+- Caches static assets for offline access
+- Implements network-first caching for Gemini API calls
+- Prompts users when new updates are available
+
+## Features
+
+- Subscription tracking with AI-powered insights
+- PWA support for offline functionality
+- Real-time currency conversion (USD/KRW)
+- Category-based organization
+- Payment method tracking
+- Error boundary for graceful error handling
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- Google Gemini AI
+- PWA (vite-plugin-pwa)
+- Tailwind CSS (via inline styles)
