@@ -10,11 +10,32 @@ View your app in AI Studio: https://ai.studio/apps/drive/1c8Gk-0gtGZQ6Lr2jRdMflJ
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:**  Node.js 18+
 
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+   ```bash
+   npm install
+   ```
+
+2. Set up environment variables:
+   ```bash
+   # Copy the example file
+   cp .env.example .env.local
+
+   # Edit .env.local and add your Gemini API key
+   # VITE_GEMINI_API_KEY=your_actual_api_key_here
+   ```
+
+   Get your Gemini API key from: https://ai.google.dev/
+
 3. Run the app:
-   `npm run dev`
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   npm run preview
+   ```

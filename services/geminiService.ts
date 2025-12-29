@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Subscription } from "../types";
 
-const apiKey = process.env.API_KEY || '';
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 // Mock fallback for when API key is missing
@@ -22,8 +22,8 @@ export const parseSubscriptionText = async (text: string): Promise<any> => {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: `Extract subscription details from this text: "${text}". 
+      model: 'gemini-2.5-flash',
+      contents: `Extract subscription details from this text: "${text}".
       If a value is missing, make a reasonable guess or use default (e.g., price 0, currency USD).
       Category must be one of: AI, Development, Design, Productivity, Storage, Media, Other.`,
       config: {
@@ -61,13 +61,13 @@ export const generateSpendingInsights = async (subscriptions: Subscription[], to
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.5-flash',
       contents: `Analyze these subscriptions and provide brief, actionable advice to save money or optimize spending.
       Total Monthly Spend (approx KRW): ${totalKrw.toLocaleString()}
-      
+
       Subscriptions:
       ${subSummary}
-      
+
       Provide 3 short bullet points.`,
     });
     return response.text || "No insights available.";
